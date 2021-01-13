@@ -1,12 +1,13 @@
-import { StatusBar } from "expo-status-bar";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   ActivityIndicator,
   Animated,
   Button,
   Image,
+  Platform,
   SafeAreaView,
   ScrollView,
+  StatusBar,
   StyleSheet,
   TouchableNativeFeedback,
   TouchableOpacity,
@@ -66,16 +67,17 @@ export default function App() {
   return (
     <ScrollView>
       <SafeAreaView style={styles.container}>
-        <Text numberOfLines={1} onPress={handlerTextPres}>
-          React Native! - realy realy long text. I wanna make this text even
-          longer to si what heppens.
-        </Text>
-
+        {/* SafeAreaView works only for IOS */}
         {showSpiner ? (
           <ActivityIndicator size="large" color="#00ff00" />
         ) : (
           <Button onPress={spinerShowingHandler} title="Show Spiner" />
         )}
+
+        <Text numberOfLines={1} onPress={handlerTextPres}>
+          React Native! - realy realy long text. I wanna make this text even
+          longer to si what heppens.
+        </Text>
 
         <TouchableHighlight onPress={() => console.log("Image tapped")}>
           <Image
@@ -147,8 +149,6 @@ export default function App() {
         <View style={[firstStyles.first, newStyles]}>
           <Text>This blok shows how styles for react native works</Text>
         </View>
-
-        <StatusBar style="auto" />
       </SafeAreaView>
     </ScrollView>
   );
@@ -168,8 +168,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    justifyContent: "center",
     alignItems: "center",
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   image: {
     width: 200,
