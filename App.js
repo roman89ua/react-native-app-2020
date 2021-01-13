@@ -13,6 +13,7 @@ import {
   TouchableHighlight,
   Text,
   View,
+  Alert,
 } from "react-native";
 
 const ImageLoader = (props) => {
@@ -113,6 +114,35 @@ export default function App() {
           color="orange"
           title="Click Me"
           onPress={() => console.log("Click Me button been clicked")}
+        />
+        <Button
+          color="orange"
+          title="Call Alert"
+          onPress={() =>
+            Alert.alert("Alert box name", "Alert box content", [
+              {
+                text: "Ok button",
+                onPress: () => console.log("Ok button been clicked"),
+              },
+              {
+                text: "Cancal button",
+                onPress: () => console.log("Cancal button been clicked"),
+              },
+            ])
+          }
+        />
+        {/*prompt not working for Android app*/}
+        <Button
+          color="lightgreen"
+          title="Call Prompt dialog"
+          onPress={() => {
+            Alert.prompt(
+              "Some title of prompt dialog",
+              "Question for user",
+              (textWithUserAnswer) =>
+                alert(`Your answer is ${textWithUserAnswer}`)
+            );
+          }}
         />
 
         <StatusBar style="auto" />
