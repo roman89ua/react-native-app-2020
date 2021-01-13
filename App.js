@@ -144,18 +144,30 @@ export default function App() {
             );
           }}
         />
+        <View style={[firstStyles.first, newStyles]}>
+          <Text>This blok shows how styles for react native works</Text>
+        </View>
 
         <StatusBar style="auto" />
       </SafeAreaView>
     </ScrollView>
   );
 }
+const firstStyles = StyleSheet.create({
+  first: {
+    backgroundColor: "magenta",
+    width: 200,
+    height: 300,
+  },
+});
+const newStyles = {
+  backgroundColor: "lightblue",
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    fontSize: 16,
     justifyContent: "center",
     alignItems: "center",
   },
