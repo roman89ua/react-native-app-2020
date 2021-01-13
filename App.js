@@ -109,6 +109,12 @@ export default function App() {
           </View>
         </TouchableNativeFeedback>
 
+        <Button
+          color="orange"
+          title="Click Me"
+          onPress={() => console.log("Click Me button been clicked")}
+        />
+
         <StatusBar style="auto" />
       </SafeAreaView>
     </ScrollView>
