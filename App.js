@@ -51,7 +51,6 @@ const ImageLoader = (props) => {
 
 export default function App() {
   const [showSpiner, setShowSpiner] = useState(false);
-  const [loading, setLoading] = useState(false);
   const handlerTextPres = () => {
     console.log("Text been clicked!");
   };
