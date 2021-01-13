@@ -70,11 +70,13 @@ export default function App() {
           React Native! - realy realy long text. I wanna make this text even
           longer to si what heppens.
         </Text>
+
         {showSpiner ? (
           <ActivityIndicator size="large" color="#00ff00" />
         ) : (
           <Button onPress={spinerShowingHandler} title="Show Spiner" />
         )}
+
         <TouchableHighlight onPress={() => console.log("Image tapped")}>
           <Image
             style={styles.image}
@@ -82,6 +84,7 @@ export default function App() {
             source={require("./assets/e01dcd6ca7d0387380817a09e0977d3c.jpg")}
           />
         </TouchableHighlight>
+
         <TouchableOpacity onPress={() => console.log("Image tapped")}>
           <Image
             style={styles.image}
@@ -98,6 +101,7 @@ export default function App() {
             uri: "https://picsum.photos/200/300",
           }}
         />
+
         <TouchableNativeFeedback>
           <View style={styles.native}>
             <Text style={styles.androidOnly}>
